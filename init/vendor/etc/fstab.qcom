@@ -16,5 +16,6 @@
 /dev/block/bootdevice/by-name/dsp        /dsp               ext4   ro,nosuid,nodev,barrier=1                        wait
 /dev/block/bootdevice/by-name/persist    /persist           ext4   noatime,nosuid,nodev,barrier=1                   wait,check,forceformat
 /dev/block/bootdevice/by-name/cache      /cache             ext4   noatime,nosuid,nodev,barrier=1                   wait
+/dev/block/zram0                         none               swap   defaults                                         zramsize=536870912
 
 /devices/soc/a800000.ssusb/a800000.dwc3/xhci-hcd.0.auto/usb1*  /storage/usbotg    vfat    nosuid,nodev                wait,voldmanaged=usbotg:auto

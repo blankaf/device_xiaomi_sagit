@@ -8,6 +8,9 @@
 /dev/sysmatdrv                        u:object_r:sysmatdrv_device:s0
 /dev/socket/thermal-switch-socket     u:object_r:thermal_switch_device:s0
 
+# Block device for ZRAM
+/dev/block/zram0                                u:object_r:swap_block_device:s0
+
 # Goodix
 /dev/goodix_fp*                                                       u:object_r:goodix_fpd_device:s0
 
