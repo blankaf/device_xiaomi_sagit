@@ -254,6 +254,8 @@ on post-fs-data
     mkdir /data/misc/camera 0770 camera camera
     setprop persist.camera.stats.test 5
 
+    setprop persist.camera.HAL3.enabled 1
+
     mkdir /data/media 0770 media_rw media_rw
     chown media_rw media_rw /data/media
 
