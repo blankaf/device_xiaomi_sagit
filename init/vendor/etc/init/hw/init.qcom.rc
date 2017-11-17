@@ -848,34 +848,6 @@ service cnss_diag /vendor/bin/cnss_diag -q -f
     disabled
     oneshot
 
-service tcpdump /vendor/bin/tcpdump -i any -W 2 -C 2 -s 134 -w /sdcard/MIUI/debug_log/common/tcpdump.pcap
-    class main
-    user root
-    group root
-    disabled
-    oneshot
-
-service sniffer /vendor/bin/tcpdump -i wlan0 -w /sdcard/wlan_logs/sniffer.pcap
-    class main
-    user root
-    group root
-    disabled
-    oneshot
-
-service startpktlog /system/bin/iwpriv wlan0 pktlog 2
-    class main
-    user root
-    group root
-    disabled
-    oneshot
-
-service stoppktlog /system/bin/iwpriv wlan0 pktlog 0
-    class main
-    user root
-    group root
-    disabled
-    oneshot
-
 service cnss-daemon /vendor/bin/cnss-daemon -n -l
     class late_start
     user system
@@ -983,10 +955,6 @@ service wifi-crda /vendor/bin/init.crda.sh
 
 on property:sys.boot_completed=1
     start qcom-post-boot
-
-on property:sys.miui.user_authenticated=true
-    start cnss_diag
-    start tcpdump
 
 service qvop-daemon /vendor/bin/qvop-daemon
     class late_start
