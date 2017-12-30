@@ -77,6 +77,10 @@ vendor/bin/wcnss_filter
 vendor/lib64/libbtnv.so
 vendor/lib/libbtnv.so
 
+# From from cheeseburger - OPR6.170623.013
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|24aae5196f823d0c3099a4ad5501a7b6d1f11d3b
+vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so|f343dea148cd50df0ccc110ec56da3b4966f9ac3
+
 # Bluetooth firmware
 
 # Camera
