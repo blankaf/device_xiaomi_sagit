@@ -139,13 +139,9 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 # CNE and DPM
 BOARD_USES_QCNE := true
 
-# Dex
-ifeq ($(HOST_OS),linux)
-  ifneq ($(TARGET_BUILD_VARIANT),eng)
-    WITH_DEXPREOPT ?= true
-  endif
-endif
-WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
+# Enable dexpreopt to speed boot time
+WITH_DEXPREOPT := true
+WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := true
 
 # Display
 MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
