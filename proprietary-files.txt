@@ -57,27 +57,36 @@ etc/firmware/tfa98xx_aac.cnt:vendor/firmware/tfa98xx_aac.cnt
 etc/firmware/tfa98xx_ssi.cnt:vendor/firmware/tfa98xx_ssi.cnt
 
 # Audio libraries
+etc/permissions/audiosphere.xml:vendor/etc/permissions/audiosphere.xml|737461e450cb6e18e57621b044b033c90e0c5920
+framework/audiosphere.jar:vendor/framework/audiosphere.jar
 vendor/lib/soundfx/libdirac.so
-vendor/lib64/soundfx/libqcbassboost.so
-vendor/lib64/soundfx/libqcreverb.so
-vendor/lib64/soundfx/libqcvirt.so
-vendor/lib64/libacdb-fts.so
-vendor/lib64/libacdbloader.so
-vendor/lib64/libacdbrtac.so
-vendor/lib64/libadiertac.so
-vendor/lib64/libaudcal.so
-vendor/lib64/libhwdaphal.so
-vendor/lib/soundfx/libqcbassboost.so
-vendor/lib/soundfx/libqcreverb.so
-vendor/lib/soundfx/libqcvirt.so
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
 vendor/lib/libadm.so
 vendor/lib/libaudcal.so
-vendor/lib/libhwdaphal.so
+vendor/lib/libaudioalsa.so
+vendor/lib/libmdsprpc.so
 vendor/lib/libqtigef.so
+vendor/lib/soundfx/libasphere.so
+vendor/lib/soundfx/libqcbassboost.so
+vendor/lib/soundfx/libqcreverb.so
+vendor/lib/soundfx/libqcvirt.so
+vendor/lib/soundfx/libshoebox.so
+vendor/lib64/libacdb-fts.so
+vendor/lib64/libacdbloader.so
+vendor/lib64/libacdbrtac.so
+vendor/lib64/libadiertac.so
+vendor/lib64/libaudcal.so
+vendor/lib64/libaudioalsa.so
+vendor/lib64/libmdsprpc.so
+vendor/lib64/libqtigef.so
+vendor/lib64/soundfx/libasphere.so
+vendor/lib64/soundfx/libqcbassboost.so
+vendor/lib64/soundfx/libqcreverb.so
+vendor/lib64/soundfx/libqcvirt.so
+vendor/lib64/soundfx/libshoebox.so
 
 # From OnePlus5-user 8.1.0 OPM1.171019.011 9 release-keys
 vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|cf94d04ac8f78c31f0aeb8d16c2ebcf30c390f3f
