@@ -2657,6 +2657,11 @@ case "$target" in
         echo 4-7 > /dev/cpuset/foreground/boost/cpus
         echo 0-2,4-7 > /dev/cpuset/foreground/cpus
         echo 0 > /proc/sys/kernel/sched_boost
+
+	# Enable ALMK
+        echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
+        echo 801 > /sys/module/lowmemorykiller/parameters/adj_max_shift
+        echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
     ;;
 esac
 

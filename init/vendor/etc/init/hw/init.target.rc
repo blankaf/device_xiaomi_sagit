@@ -283,7 +283,7 @@ service audiod /system/vendor/bin/audiod
    user system
    group system
 
-service audio_info /system/bin/audio_info
+service audio_info /system/vendor/bin/audio_info
    class main
    user system
    group system
