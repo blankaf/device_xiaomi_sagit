@@ -1,6 +1,9 @@
-allow hal_fingerprint_default fingerprintd_data_file:dir write;
-allow hal_fingerprint_default firmware_file:dir search;
+# Allow hal_fingerprint_default to open firmware images
+r_dir_file(hal_fingerprint_default, firmware_file)
 allow hal_fingerprint_default firmware_file:file { getattr open read };
+allow hal_fingerprint_default firmware_file:dir search;
+allow hal_fingerprint_default fingerprintd_data_file:dir write;
+allow hal_fingerprint_default fingerprintd:netlink_socket { create bind read write };
 allow hal_fingerprint_default goodix_data_file:dir search;
 allow hal_fingerprint_default goodix_data_file:file { getattr open read };
 allow hal_fingerprint_default goodix_fpd_device:chr_file { open ioctl read write };
@@ -8,5 +11,29 @@ allow hal_fingerprint_default self:netlink_socket { bind read create write };
 allow hal_fingerprint_default system_data_file:file { getattr open read };
 allow hal_fingerprint_default tee_device:chr_file { ioctl open read write };
 allow hal_fingerprint_default firmware_file:dir search;
+allow hal_fingerprint_default fingerprint_service:service_manager find;
+allow hal_fingerprint_default sysfs:file { open write };
+allow hal_fingerprint_default fpc_persist_file:file { open read };
+allow hal_fingerprint_default property_socket:sock_file { write };
+allow hal_fingerprint_default mpctl_socket:sock_file { write };
+allow hal_fingerprint_default init:unix_stream_socket { connectto };
+allow hal_fingerprint_default hal_perf_hwservice:hwservice_manager { find };
+allow hal_fingerprint_default hal_perf_default:binder { call };
+allow hal_fingerprint_default fp_pnstatus_prop:property_service { set };
+allow hal_fingerprint_default fpc_data_file:dir rw_dir_perms;
+allow hal_fingerprint_default fpc_data_file:file create_file_perms;
+allow hal_fingerprint_default fpc_data_file:sock_file { create unlink };
+allow hal_fingerprint_default sysfs_fpc:dir r_dir_perms;
+allow hal_fingerprint_default sysfs_fpc:file rw_file_perms;
+allow hal_fingerprint_default sysmatdrv_device:chr_file w_file_perms;
+allow hal_fingerprint_default system_prop:property_service { set };
+allow hal_fingerprint_default tee_device:chr_file rw_file_perms;
+allow hal_fingerprint_default uhid_device:chr_file rw_file_perms;
+allow hal_fingerprint_default storage_file:lnk_file read;
+allow hal_fingerprint_default storage_file:dir search;
+allow hal_fingerprint_default mnt_user_file:lnk_file read;
+allow hal_fingerprint_default mnt_user_file:dir search;
+allow hal_fingerprint_default sdcardfs:dir search;
+allow hal_fingerprint_default media_rw_data_file:dir { search read open };
 
 binder_call(hal_fingerprint_default, servicemanager)
