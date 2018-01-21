@@ -25,9 +25,12 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-import init.qcom.usb.rc
-import init.msm.usb.configfs.rc
-import init.target.rc
+import /vendor/etc/init/hw/init.qcom.usb.rc
+import /vendor/etc/init/hw/init.msm.usb.configfs.rc
+import /vendor/etc/init/hw/init.target.rc
+import /vendor/etc/init/hw/init.qcom.factory.rc
+import /vendor/etc/init/hw/init.qcom.test.rc
+import /vendor/etc/init/hw/init.sagit.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -36,7 +39,6 @@ on early-init
     chmod 0620 /dev/kmsg
 
 on init
-    export LD_SHIM_LIBS /system/lib/libMiCameraHal.so|libshim_MiCamera.so
     # Set permissions for persist partition
     mkdir /persist 0771 root system
 
@@ -116,47 +118,7 @@ on boot
     #Create NETMGR daemon socket area
     mkdir /dev/socket/netmgr 0750 radio radio
 
-    # RGB lights
-    chown system system /sys/class/leds/white/brightness
-    chown system system /sys/class/leds/white/pause_lo
-    chown system system /sys/class/leds/white/pause_hi
-    chown system system /sys/class/leds/white/blink
-    chown system system /sys/class/leds/white/ramp_step_ms
-    chown system system /sys/class/leds/white/duty_pcts
-    chown system system /sys/class/leds/white/start_idx
-
-    chmod 660 /sys/class/leds/white/brightness
-    chmod 660 /sys/class/leds/white/ramp_step_ms
-    chmod 660 /sys/class/leds/white/duty_pcts
-    chmod 660 /sys/class/leds/white/start_idx
-
-    # LED torch permissions
-    chmod 0666 /sys/class/leds/led:torch_0/brightness
-    chmod 0666 /sys/class/leds/led:torch_1/brightness
-    chmod 0666 /sys/class/leds/led:switch_0/brightness
-    chmod 0666 /sys/class/leds/led:switch_1/brightness
-
-    # Button backlight permissions
-    chown system system /sys/class/leds/button-backlight1/brightness
-
-    # KeyDisabler permissions
-    chown system system /sys/module/gf_spi/parameters/report_home_events
-    chown system system /sys/devices/soc/soc:fingerprint_fpc/enable_key_events
-    chmod 0660 /sys/module/gf_spi/parameters/report_home_events
-    chmod 0660 /sys/devices/soc/soc:fingerprint_fpc/enable_key_events
-
-    chown system system /proc/touchpanel
-    chown system system /sys/devices/soc/c179000.i2c/i2c-5/5-0020/input/input1/0dbutton
-    chown system system /sys/devices/soc/c179000.i2c/i2c-5/5-0020/input/input1/wake_gesture
-    chown system system /sys/devices/soc/c179000.i2c/i2c-5/5-0020/input/input1/reversed_keys_enable
-    chmod 0660 /sys/devices/soc/c179000.i2c/i2c-5/5-0020/input/input1/0dbutton
-    chmod 0660 /sys/devices/soc/c179000.i2c/i2c-5/5-0020/input/input1/wake_gesture
-    chmod 0660 /sys/devices/soc/c179000.i2c/i2c-5/5-0020/input/input1/reversed_keys_enable
-
     setprop wifi.interface wlan0
-
-    # Wifi firmware reload path
-    chown wifi wifi /sys/module/wlan/parameters/fwpath
 
 #   Define TCP buffer sizes for various networks
 #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
@@ -604,20 +566,8 @@ on property:persist.download_mode=1
 service start_hci_filter /system/vendor/bin/wcnss_filter
     class late_start
     user bluetooth
-    group bluetooth oem_2950 system wakelock
+    group bluetooth diag system wakelock
     seclabel u:r:bluetooth:s0
-    disabled
-
-on property:wc_transport.start_root=true
-    start hci_filter_root
-
-on property:wc_transport.start_root=false
-    stop hci_filter_root
-
-service hci_filter_root /system/vendor/bin/wcnss_filter
-    class late_start
-    user bluetooth
-    group bluetooth oem_2950 system
     disabled
 
 service bt-dun /system/bin/dun-server /dev/smd7 /dev/rfcomm0
@@ -677,6 +627,7 @@ service qmuxd /system/vendor/bin/qmuxd
 
 service netmgrd /system/vendor/bin/netmgrd
     class main
+    disabled
 
 service ipacm-diag /system/vendor/bin/ipacm-diag
     class main
@@ -689,16 +640,19 @@ service ipacm /system/vendor/bin/ipacm
     class main
     user radio
     group radio inet
+    disabled
 
 service qti /system/vendor/bin/qti
     class main
     user radio
     group radio net_raw diag usb net_admin
+    disabled
 
 service sensors /vendor/bin/sensors.qcom
     class core
     user root
     group root
+    disabled
 
 on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
@@ -1058,6 +1012,7 @@ service ril-daemon2 /vendor/bin/hw/rild -c 2
     socket rild2 stream 660 root radio
     socket rild-debug2 stream 660 radio system
     user radio
+    disabled
     group radio cache inet misc audio sdcard_r sdcard_rw diag oem_2901 log
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
@@ -1079,7 +1034,7 @@ service profiler_daemon /system/bin/profiler_daemon
 service charger /charger
     class charger
     group system graphics
-    seclabel u:r:healthd:s0
+    seclabel u:r:charger:s0
 
 service ssr_diag /system/vendor/bin/ssr_diag
     class late_start
