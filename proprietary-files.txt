@@ -846,6 +846,7 @@ vendor/etc/perf/perf-profile3.conf
 vendor/etc/perf/perf-profile4.conf
 vendor/etc/perf/perf-profile5.conf
 vendor/etc/perf/perf-profile6.conf
+vendor/lib/libfeedbackhandler.so
 vendor/lib/libperfgluelayer.so
 vendor/lib/libqti-iopd-client.so
 vendor/lib/libqti-iopd.so
@@ -853,6 +854,7 @@ vendor/lib/libqti-perfd-client.so
 vendor/lib/libqti-perfd.so
 vendor/lib/libqti-util.so
 vendor/lib/libqti-utils.so
+vendor/lib64/libfeedbackhandler.so
 vendor/lib64/libperfgluelayer.so
 vendor/lib64/libqti-iopd-client.so
 vendor/lib64/libqti-iopd.so
