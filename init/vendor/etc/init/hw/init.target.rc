@@ -98,10 +98,10 @@ on post-fs-data
 
 
 #QDCM config file for sagit
-    copy /system/etc/calib.cfg /data/vendor/display/calib.cfg
-    copy /system/etc/qdcm_calib_data_jdi_fhd_cmd_incell_dsi_panel.xml /data/vendor/display/qdcm_calib_data_jdi_fhd_cmd_incell_dsi_panel.xml
-    copy /system/etc/qdcm_calib_data_lgd_fhd_cmd_incell_dsi_panel.xml /data/vendor/display/qdcm_calib_data_lgd_fhd_cmd_incell_dsi_panel.xml
-    copy /system/etc/jdi_fhd_cmd_incell_dsi_panel_ct.xml /data/vendor/display/jdi_fhd_cmd_incell_dsi_panel_ct.xml
+    copy /vendor/etc/calib.cfg /data/vendor/display/calib.cfg
+    copy /vendor/etc/qdcm_calib_data_jdi_fhd_cmd_incell_dsi_panel.xml /data/vendor/display/qdcm_calib_data_jdi_fhd_cmd_incell_dsi_panel.xml
+    copy /vendor/etc/qdcm_calib_data_lgd_fhd_cmd_incell_dsi_panel.xml /data/vendor/display/qdcm_calib_data_lgd_fhd_cmd_incell_dsi_panel.xml
+    copy /vendor/etc/jdi_fhd_cmd_incell_dsi_panel_ct.xml /data/vendor/display/jdi_fhd_cmd_incell_dsi_panel_ct.xml
     chmod 0644 /data/vendor/display/calib.cfg
     chmod 0644 /data/vendor/display/qdcm_calib_data_jdi_fhd_cmd_incell_dsi_panel.xml
     chmod 0644 /data/vendor/display/qdcm_calib_data_lgd_fhd_cmd_incell_dsi_panel.xml

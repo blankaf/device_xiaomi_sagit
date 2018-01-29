@@ -569,9 +569,9 @@ vendor/lib/libxml.so
 lib64/hw/consumerir.default.so
 
 # Display calibration data
-etc/qdcm_calib_data_jdi_fhd_cmd_incell_dsi_panel.xml
-etc/qdcm_calib_data_lgd_fhd_cmd_incell_dsi_panel.xml
-etc/jdi_fhd_cmd_incell_dsi_panel_ct.xml
+etc/qdcm_calib_data_jdi_fhd_cmd_incell_dsi_panel.xml:vendor/etc/qdcm_calib_data_jdi_fhd_cmd_incell_dsi_panel.xml
+etc/qdcm_calib_data_lgd_fhd_cmd_incell_dsi_panel.xml:vendor/etc/qdcm_calib_data_lgd_fhd_cmd_incell_dsi_panel.xml
+etc/jdi_fhd_cmd_incell_dsi_panel_ct.xml:vendor/etc/jdi_fhd_cmd_incell_dsi_panel_ct.xml
 
 # DPM
 bin/dpmd
@@ -1157,4 +1157,4 @@ vendor/bin/msm_irqbalance
 vendor/bin/fstman
 vendor/bin/ATFWD-daemon
 
-etc/calib.cfg
+etc/calib.cfg:vendor/etc/calib.cfg
