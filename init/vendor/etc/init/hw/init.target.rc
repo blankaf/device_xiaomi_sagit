@@ -168,11 +168,6 @@ on boot
    insmod /system/lib/modules/msm-vidc-dyn-gov.ko
    insmod /system/lib/modules/msm-vidc-table-gov.ko
 
-#Load WLAN driver
-   insmod /vendor/lib/modules/wlan.ko
-   setprop wlan.driver.status "ok"
-   chown wifi wifi /sys/module/wlan/parameters/fwpath
-
     chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/irq
     chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/irq_enable
     chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/wakeup_enable
@@ -230,6 +225,10 @@ on boot
     chmod 0660 /proc/touchpanel/capacitive_keys_enable
     chmod 0660 /proc/touchpanel/double_tap_enable
     chmod 0660 /proc/touchpanel/reversed_keys_enable
+
+    # Wifi firmware reload path
+    chown wifi wifi /sys/module/wlan/parameters/fwpath
+    chown wifi wifi /sys/kernel/boot_wlan/boot_wlan
 
 on property:ro.boot.fingerprint=fpc
     setprop ro.hardware.fingerprint fpc
