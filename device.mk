@@ -158,6 +158,8 @@ PRODUCT_PACKAGES += \
     libgenlock \
     liboverlay \
     libtinyxml \
+    libqdMetaData \
+    libqdMetaData.system \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.mapper@2.0-impl \
@@ -217,6 +219,8 @@ PRODUCT_PACKAGES += \
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
+    android.hidl.manager@1.0 \
+    android.hidl.manager@1.0-java
 
 # Init
 PRODUCT_COPY_FILES += \
