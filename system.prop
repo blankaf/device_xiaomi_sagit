@@ -133,7 +133,6 @@ telephony.lteOnCdmaDevice=1
 
 # Media
 media.aac_51_output_enabled=true
-media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 media.stagefright.enable-aac=true
 media.stagefright.enable-http=true
 media.stagefright.enable-player=true
