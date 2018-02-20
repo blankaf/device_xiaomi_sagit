@@ -263,9 +263,9 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service \
     lights.msm8998
 
-# LiveDisplay jni
+# LiveDisplay native
 PRODUCT_PACKAGES += \
-    libjni_livedisplay
+    vendor.lineage.livedisplay@1.0-service-qdcm
 
 # Media
 PRODUCT_COPY_FILES += \
