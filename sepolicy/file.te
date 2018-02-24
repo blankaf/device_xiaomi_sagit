@@ -21,3 +21,4 @@ type tftp_server_check_file, file_type;
 type thermal_data_file, file_type;
 type thermal_dump_file, file_type;
 type netmgr_data_file, file_type;
+type proc_touchpanel, fs_type;

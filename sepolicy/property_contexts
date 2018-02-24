@@ -6,3 +6,6 @@ ro.sys.oem.sno             u:object_r:system_radio_prop:s0
 sys.fake_bs_flag0          u:object_r:system_radio_prop:s0
 sys.fake_bs_flag1          u:object_r:system_radio_prop:s0
 sys.panel.                 u:object_r:system_panel_prop:s0
+
+sys.qcom.thermalcfg        u:object_r:thermal_prop:s0
+ctl.thermal-engine         u:object_r:thermal_prop:s0
