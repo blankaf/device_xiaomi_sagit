@@ -2,3 +2,7 @@ allow rild system_radio_prop:property_service set;
 
 allow rild tombstone_data_file:file { open read write };
 allow rild tombstone_data_file:dir search;
+
+allow rild vendor_radio_data_file:dir { add_name open read remove_name write };
+allow rild vendor_radio_data_file:file { create getattr ioctl lock open read unlink write };
+allow rild vendor_file:file ioctl;

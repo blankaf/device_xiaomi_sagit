@@ -1,0 +1,1 @@
+allow pd_mapper firmware_file:dir search;

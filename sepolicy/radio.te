@@ -1,3 +1,5 @@
 allow radio net_radio_prop:property_service set;
 
 allow radio sms_secure_service:service_manager add;
+
+allow radio vendor_radio_data_file:file { lock open write };

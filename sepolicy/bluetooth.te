@@ -1,0 +1,3 @@
+allow bluetooth bluetooth_data_file:dir { rw_dir_perms };
+allow bluetooth bluetooth_data_file:file { rw_file_perms create_file_perms };
+allow bluetooth wcnss_filter_exec:file entrypoint;

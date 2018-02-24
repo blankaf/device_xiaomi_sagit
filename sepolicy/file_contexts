@@ -1,11 +1,12 @@
 # executables
-/system/bin/init.qti.qseecomd.sh                                u:object_r:init-qti-fbe-sh_exec:s0
 /(vendor|system/vendor)/bin/readmac   u:object_r:readmac_exec:s0
+/(vendor|system/vendor)/bin/bt-mac-generator                    u:object_r:bt_mac_generator_exec:s0
 
 # Devices
 /dev/elliptic(.*)?                    u:object_r:sound_device:s0
 /dev/pn553                            u:object_r:nfc_device:s0
 /dev/sysmatdrv                        u:object_r:sysmatdrv_device:s0
+/dev/socket/thermal-switch-socket     u:object_r:thermal_switch_device:s0
 
 # Goodix
 /dev/goodix_fp*                                                       u:object_r:goodix_fpd_device:s0
@@ -23,10 +24,18 @@
 /sys/devices/soc/soc:fingerprint_fpc/enable_wakeup                                  u:object_r:sysfs_fpc_wakeup:s0
 /sys/devices/soc/soc:fingerprint_fpc/proximity_state                                u:object_r:sysfs_fpc_proximity:s0
 
+/sys/devices/soc/.*/power_supply(/.*)?                                              u:object_r:sysfs_power_supply:s0
+/sys/devices/soc/.*/video4linux(/.*)?                                               u:object_r:sysfs_video4linux:s0
+/sys/devices/soc/.*/input(/.*)?                                                     u:object_r:sysfs_input:s0
+/sys/devices/bt_wcn3990(/.*)?                                                       u:object_r:sysfs_bt_device:s0
+
+/sys/kernel/boot_wlan(/.*)?                                     u:object_r:sysfs_wifi:s0
+
 /sys/module/cnss_common/parameters/bdwlan_file                                  u:object_r:sysfs_cnss_common:s0
 
 /sys/kernel/debug/msm_core(/.*)?                                u:object_r:debugfs_msm_core:s0
 /sys/kernel/debug/rmt_storage/rmts                              u:object_r:debugfs_rmts:s0
+/sys/kernel/debug/wlan.*                                        u:object_r:debugfs_wifi:s0
 
 # Data files
 /data/fpc(/.*)?                       u:object_r:fpc_data_file:s0

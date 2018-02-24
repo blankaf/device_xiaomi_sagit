@@ -1,0 +1,3 @@
+allow hvdcp sysfs_power_supply:file { getattr open read write };
+allow hvdcp sysfs_power_supply:dir search;
+allow hvdcp sysfs_power_supply:lnk_file read;

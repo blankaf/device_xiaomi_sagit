@@ -1,3 +1,11 @@
 allow init debugfs:file write;
 
 allow init goodix_fpd_device:chr_file setattr;
+
+allow init bluetooth:process { rlimitinh siginh };
+allow init hidl_base_hwservice:hwservice_manager add;
+allow init hwservicemanager:binder { call transfer };
+allow init proc:lnk_file setattr;
+
+
+allow init sysfs_input:dir write;

@@ -1,0 +1,2 @@
+allow hal_perf_default mpctl_data_file:dir { add_name write };
+allow hal_perf_default mpctl_data_file:file { append create getattr open read };
