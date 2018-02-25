@@ -35,6 +35,12 @@ on early-init
     write /proc/sys/kernel/sched_boost 1
 
 on init
+    # Disable UFS powersaving
+    write /sys/devices/soc/1da4000.ufshc/clkscale_enable 0
+    write /sys/devices/soc/1da4000.ufshc/clkgate_enable 0
+    write /sys/devices/soc/1da4000.ufshc/hibern8_on_idle_enable 0
+    write /sys/module/lpm_levels/parameters/sleep_disabled Y
+
     # Set up schedtune
     write /dev/stune/foreground/schedtune.sched_boost_no_override 1
     write /dev/stune/top-app/schedtune.sched_boost_no_override 1
@@ -209,6 +215,11 @@ on property:sys.boot_completed=1
     write /sys/block/dm-0/queue/read_ahead_kb 512
     write /sys/block/dm-1/queue/read_ahead_kb 512
 
+    # Enable UFS powersaving
+    write /sys/devices/soc/1da4000.ufshc/clkscale_enable 1
+    write /sys/devices/soc/1da4000.ufshc/clkgate_enable 1
+    write /sys/devices/soc/1da4000.ufshc/hibern8_on_idle_enable 1
+
 service per_mgr /vendor/bin/pm-service
     class core
     user system
@@ -228,6 +239,10 @@ on property:sys.shutdown.requested=*
     stop per_proxy
 
 on charger
+    # Enable UFS powersaving
+    write /sys/devices/soc/1da4000.ufshc/clkscale_enable 1
+    write /sys/devices/soc/1da4000.ufshc/clkgate_enable 1
+    write /sys/devices/soc/1da4000.ufshc/hibern8_on_idle_enable 1
     write /sys/module/lpm_levels/parameters/sleep_disabled N
 
     # disable thermal core control
