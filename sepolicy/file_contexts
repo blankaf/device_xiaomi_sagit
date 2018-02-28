@@ -45,4 +45,4 @@
 /data/thermal(/.*)?                   u:object_r:thermal_dump_file:s0
 
 # System files
-/system/vendor/bin/hw/android\.hardware\.vr@1\.0-service\.sagit             u:object_r:hal_vr_default_exec:s0
+/vendor/bin/hw/android\.hardware\.vr@1\.0-service\.sagit             u:object_r:hal_vr_default_exec:s0

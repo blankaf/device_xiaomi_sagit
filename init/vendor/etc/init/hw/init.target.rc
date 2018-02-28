@@ -240,14 +240,14 @@ on property:ro.boot.fingerprint=goodix
    # Generate bt mac
    start bt-mac-generator
 
-service bt-mac-generator /system/vendor/bin/bt-mac-generator
+service bt-mac-generator /vendor/bin/bt-mac-generator
     class main
     user root
     group root
     oneshot
     disabled
 
-service readmac /system/vendor/bin/readmac
+service readmac /vendor/bin/readmac
     class main
     user root
     group root oem_2901
@@ -299,7 +299,7 @@ on charger
     start thermal-engine
 
 on property:ro.boot.audio=chiron-s
-    export ADSP_LIBRARY_PATH "/system/vendor/lib/rfsa/adsp/chiron-s;/system/lib/rfsa/adsp;/system/vendor/lib/rfsa/adsp;/dsp"
+    export ADSP_LIBRARY_PATH "/vendor/lib/rfsa/adsp/chiron-s;/system/lib/rfsa/adsp;/vendor/lib/rfsa/adsp;/dsp"
 #on post-fs
 #    export LD_PRELOAD /vendor/lib/libNimsWrap.so
 #
@@ -335,7 +335,7 @@ service spdaemon /vendor/bin/spdaemon
    user system
    group system
 
-#service mpdecision /system/vendor/bin/mpdecision --avg_comp
+#service mpdecision /vendor/bin/mpdecision --avg_comp
 #   user root
 #   disabled
 #
@@ -344,7 +344,7 @@ service spdaemon /vendor/bin/spdaemon
 #   group system
 #   disabled
 #
-service thermal-engine /system/vendor/bin/thermal-engine -T
+service thermal-engine /vendor/bin/thermal-engine -T
    class main
    user root
    socket thermal-send-client stream 0666 system system
@@ -362,23 +362,23 @@ service thermal-engine /system/vendor/bin/thermal-engine -T
 #    oneshot
 #
 
-service adsprpcd /system/vendor/bin/adsprpcd
+service adsprpcd /vendor/bin/adsprpcd
    class main
    user media
    group media
 
-service hbtp /system/vendor/bin/hbtp_daemon
+service hbtp /vendor/bin/hbtp_daemon
     class main
     user system
     group system
     disabled
 
-service audiod /system/vendor/bin/audiod
+service audiod /vendor/bin/audiod
    class late_start
    user system
    group system
 
-service audio_info /system/vendor/bin/audio_info
+service audio_info /vendor/bin/audio_info
    class main
    user system
    group system
@@ -386,44 +386,44 @@ service audio_info /system/vendor/bin/audio_info
    oneshot
    seclabel u:r:audio_info:s0
 
-#service usf_tester /system/vendor/bin/usf_tester
+#service usf_tester /vendor/bin/usf_tester
 #    user system
 #    group system inet
 #    disabled
 #
-#service usf_epos /system/vendor/bin/usf_epos
+#service usf_epos /vendor/bin/usf_epos
 #    user system
 #    group system inet
 #    disabled
 #
-#service usf_gesture /system/vendor/bin/usf_gesture
-#    user system
-#    group system inet
-#    disabled
-#
-
-#service usf_sync_gesture /system/vendor/bin/usf_sync_gesture
+#service usf_gesture /vendor/bin/usf_gesture
 #    user system
 #    group system inet
 #    disabled
 #
 
-#service usf_p2p /system/vendor/bin/usf_p2p
+#service usf_sync_gesture /vendor/bin/usf_sync_gesture
 #    user system
 #    group system inet
 #    disabled
 #
-#service usf_hovering /system/vendor/bin/usf_hovering
+
+#service usf_p2p /vendor/bin/usf_p2p
 #    user system
 #    group system inet
 #    disabled
 #
-#service usf_proximity /system/vendor/bin/usf_proximity
+#service usf_hovering /vendor/bin/usf_hovering
 #    user system
 #    group system inet
 #    disabled
 #
-#service usf-post-boot /system/vendor/bin/sh /system/etc/usf_post_boot.sh
+#service usf_proximity /vendor/bin/usf_proximity
+#    user system
+#    group system inet
+#    disabled
+#
+#service usf-post-boot /vendor/bin/sh /system/etc/usf_post_boot.sh
 #    class late_start
 #    user root
 #    disabled
@@ -447,13 +447,13 @@ service audio_info /system/vendor/bin/audio_info
 #    chown system drmrpc /sys/devices/f9966000.i2c/i2c-1/1-0020/secure_touch
 #
 #
-service imsqmidaemon /system/vendor/bin/imsqmidaemon
+service imsqmidaemon /vendor/bin/imsqmidaemon
     class main
     user system
     socket ims_qmid stream 0660 system radio
     group radio log diag
 
-service imsdatadaemon /system/vendor/bin/imsdatadaemon
+service imsdatadaemon /vendor/bin/imsdatadaemon
     class main
     user system
     socket ims_datad stream 0660 system radio
@@ -497,20 +497,20 @@ service imsdatadaemon /system/vendor/bin/imsdatadaemon
 #    start mdm_helper_proxy
 #
 ## QCA1530 SoC core detect
-#service gnss-detect /system/vendor/bin/gnss.qca1530.sh detect
+#service gnss-detect /vendor/bin/gnss.qca1530.sh detect
 #   class core
 #   oneshot
-service pd_mapper /system/vendor/bin/pd-mapper
+service pd_mapper /vendor/bin/pd-mapper
      class core
 
 #
 ## QCA1530 SoC late_start group trigger
-#service gnss-init /system/vendor/bin/gnss.qca1530.sh init
+#service gnss-init /vendor/bin/gnss.qca1530.sh init
 #   class late_start
 #   oneshot
 #
 ## QCA1530 SoC Service Daemon
-#service gnss-svcd /system/vendor/bin/gnss.qca1530.sh start
+#service gnss-svcd /vendor/bin/gnss.qca1530.sh start
 #   class late_start
 #   user root
 #   group gps system oem_2901 diag log inet net_raw
@@ -519,13 +519,13 @@ service pd_mapper /system/vendor/bin/pd-mapper
 on property:vendor.ims.QMI_DAEMON_STATUS=1
     start imsdatadaemon
 
-service ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
+service ims_rtp_daemon /vendor/bin/ims_rtp_daemon
    class main
    user system
    group radio diag inet log
    disabled
 
-service vendor.imsrcsservice /system/vendor/bin/imsrcsd
+service vendor.imsrcsservice /vendor/bin/imsrcsd
    class main
    user system
    group radio diag inet log
@@ -559,7 +559,7 @@ on property:init.svc.zygote=restarting
 #    user system
 #    group drmrpc
 #
-#service adsprpcd /system/vendor/bin/adsprpcd
+#service adsprpcd /vendor/bin/adsprpcd
 #   class main
 #   user media
 #   group media
@@ -571,13 +571,13 @@ on property:init.svc.zygote=restarting
 #    user system
 #    group system
 
-service energy-awareness /system/vendor/bin/energy-awareness
+service energy-awareness /vendor/bin/energy-awareness
     class main
     user root
     group system
     oneshot
 
-service mdtpd /system/vendor/bin/mdtpd
+service mdtpd /vendor/bin/mdtpd
     class late_start
     user root
     group system radio drmrpc
@@ -587,7 +587,7 @@ service mmbn-daemon /system/bin/mmbn-daemon
     disabled
     oneshot
 
-service hvdcp_opti /system/vendor/bin/hvdcp_opti
+service hvdcp_opti /vendor/bin/hvdcp_opti
     class main
     user root
     group system wakelock
@@ -605,17 +605,17 @@ service nv_mac /vendor/bin/nv_mac
     group net_raw
     oneshot
 
-service panel-info-sh /system/vendor/bin/init.panel_info.sh
+service panel-info-sh /vendor/bin/init.panel_info.sh
     class core
     user root
     oneshot
 
-service leds-sh /system/vendor/bin/init.leds.sh
+service leds-sh /vendor/bin/init.leds.sh
     class core
     user root
     oneshot
 
-service display_count /system/vendor/bin/display_count
+service display_count /vendor/bin/display_count
     class late_start
     user root
     group root
