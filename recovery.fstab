@@ -6,7 +6,8 @@
 /system_image	emmc	/dev/block/bootdevice/by-name/system
 /data		ext4	/dev/block/bootdevice/by-name/userdata
 /firmware	vfat	/dev/block/bootdevice/by-name/modem					flags=display="Firmware";mounttodecrypt;fsflags=ro
-/cust		ext4	/dev/block/bootdevice/by-name/cust					flags=display="Cust"
+/vendor		ext4	/dev/block/bootdevice/by-name/cust					flags=backup=1;wipeingui
+/vendor_image	emmc	/dev/block/bootdevice/by-name/cust					flags=backup=1
 /misc		emmc	/dev/block/bootdevice/by-name/misc
 /efs1		emmc	/dev/block/bootdevice/by-name/modemst1					flags=backup=1;display=EFS
 /efs2		emmc	/dev/block/bootdevice/by-name/modemst2					flags=backup=1;subpartitionof=/efs1
