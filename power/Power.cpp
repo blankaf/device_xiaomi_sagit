@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.power@1.1-service.wahoo"
+#define LOG_TAG "android.hardware.power@1.1-service.sagit"
 
 #include <android/log.h>
 #include <android-base/file.h>
@@ -77,8 +77,8 @@ Return<void> Power::powerHint(PowerHint hint, int32_t data) {
     return Void();
 }
 
-Return<void> Power::setFeature(Feature /*feature*/, bool /*activate*/)  {
-    //Nothing to do
+Return<void> Power::setFeature(Feature feature, bool activate)  {
+    set_feature(static_cast<feature_t>(feature), activate ? 1 : 0);
     return Void();
 }
 
