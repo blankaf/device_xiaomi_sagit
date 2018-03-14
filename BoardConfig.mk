@@ -254,5 +254,10 @@ WIFI_DRIVER_OPERSTATE_PATH := "/sys/class/net/wlan0/operstate"
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
+# Treble
+PRODUCT_FULL_TREBLE_OVERRIDE := true
+PRODUCT_SHIPPING_API_LEVEL := 25
+PRODUCT_COMPATIBILITY_MATRIX_LEVEL_OVERRIDE := 27
+
 # inherit from the proprietary version
 -include vendor/xiaomi/sagit/BoardConfigVendor.mk
