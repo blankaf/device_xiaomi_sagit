@@ -133,10 +133,12 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    libshim_MiCamera \
-    camera.device@3.2-impl \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
+    camera.device@3.2-impl \
+    libshim_MiCamera \
+
+PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0 \
     vendor.qti.hardware.camera.device@1.0_vendor
 
@@ -150,8 +152,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-impl \
     android.hardware.ir@1.0-service
+
 # Display
 PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.composer@2.1-service \
     copybit.msm8998 \
     gralloc.msm8998 \
     hwcomposer.msm8998 \
@@ -162,14 +172,7 @@ PRODUCT_PACKAGES += \
     liboverlay \
     libtinyxml \
     libqdMetaData \
-    libqdMetaData.system \
-    android.hardware.graphics.allocator@2.0-impl \
-    android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.mapper@2.0-impl \
-    android.hardware.memtrack@1.0-impl \
-    android.hardware.memtrack@1.0-service \
-    android.hardware.graphics.composer@2.1-impl \
-    android.hardware.graphics.composer@2.1-service \
+    libqdMetaData.system
 
 # Doze
 PRODUCT_PACKAGES += \
@@ -198,7 +201,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl-qti \
     android.hardware.gnss@1.0-service-qti \
-    gps.conf \
     libgnss \
     libgps.utils \
     liblocation_api \
@@ -283,13 +285,13 @@ PRODUCT_PACKAGES += \
     libavmediaserviceextensions \
     libmediametrics \
     libregistermsext \
-    mediametrics \
+    mediametrics
 
 # Netutils
 PRODUCT_PACKAGES += \
     android.system.net.netd@1.0 \
     libandroid_net \
-    netutils-wrapper-1.0 \
+    netutils-wrapper-1.0
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -320,6 +322,7 @@ PRODUCT_PACKAGES += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.1-service.sagit
+
 # Privapp Whitelist
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/privapp-permissions-qti.xml
@@ -419,4 +422,3 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/configs/wifi/wifi_concurrency_cfg.txt:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wifi_concurrency_cfg.txt
-
