@@ -128,7 +128,7 @@ on boot
     write /dev/cpuset/foreground/cpus 0-2,4-7
     write /dev/cpuset/background/cpus 0-1
     write /dev/cpuset/system-background/cpus 0-2
-    chmod 0660 /dev/pn553
+    chmod 0666 /dev/pn553
     chown nfc nfc /dev/pn553
 
    # Add a cpuset for the camera daemon
@@ -182,9 +182,6 @@ on boot
     chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/device_prepare
     chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/vendor
     chmod 0600 /data/misc/fpc/calibration_image.pndat
- 
-   chown nfc nfc /dev/nq-nci
-   chmod 0660 /dev/nq-nci
 
     # RGB lights
     chown system system /sys/class/leds/white/brightness
