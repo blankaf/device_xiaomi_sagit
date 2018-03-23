@@ -13,8 +13,8 @@ PRODUCT_RELEASE_NAME := sagit
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
         PRODUCT_NAME=sagit \
-        PRIVATE_BUILD_DESC="sagit-user 8.0.0 OPR1.170623.027 V9.2.3.0.OCAMIEK release-keys"
+        PRIVATE_BUILD_DESC="sagit-user 8.0.0 OPR1.170623.027 V9.5.3.0.OCAMIFA release-keys"
 
-BUILD_FINGERPRINT := Xiaomi/sagit/sagit:8.0.0/OPR1.170623.027/V9.2.3.0.OCAMIEK:user/release-keys
+BUILD_FINGERPRINT := Xiaomi/sagit/sagit:8.0.0/OPR1.170623.027/V9.5.3.0.OCAMIFA:user/release-keys
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
